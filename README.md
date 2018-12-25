@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Firebase deploy
 
-This project is deployed with [Firebase](https://isi-project.firebaseapp.com)
+This project is deployed with [Firebase](https://isi-project.firebaseapp.com).
 
 ## Travis-CI
 
