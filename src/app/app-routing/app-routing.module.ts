@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { ErrorPageComponent } from '../error-page/error-page.component';
 import { RegisterComponent } from '../register/register.component';
+import { MapComponent } from '../map/map.component';
 
 const app_Routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'map', component: MapComponent},
   // { path: 'donor-form', component: DonorFormComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
   // { path: 'donor-profile', component: DonorProfileComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
   // { path: 'donation-request', component: DonationRequestComponent, canActivate: [AuthGuard], data: {roles: ['doctor']}},
