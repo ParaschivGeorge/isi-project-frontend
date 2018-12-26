@@ -3,6 +3,8 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import url('https://fonts.googleapis.com/css?family=Pattaya');
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* load esri styles for version 3.x via css import */
+@import url('https://js.arcgis.com/3.27/esri/css/esri.css');
 
 h1{font-size:2rem}
 h2{font-size:1.5rem}

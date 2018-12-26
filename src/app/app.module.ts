@@ -13,6 +13,8 @@ import { HttpModule } from '@angular/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MapComponent } from './map/map.component';
+import { AngularEsriModule } from 'angular-esri-components';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LoginComponent,
     RegisterComponent,
     ErrorPageComponent,
-    NavBarComponent
+    NavBarComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpModule,
     AppRoutingModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    AngularEsriModule
   ],
   providers: [],
   bootstrap: [AppComponent]
