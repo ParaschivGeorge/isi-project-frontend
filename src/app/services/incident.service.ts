@@ -34,4 +34,8 @@ export class IncidentService {
 
     return this._http.request<any>('post', environment.apiUrl + '/incident/search/setStatus', {params : queryParam});
   }
+
+  deleteIncident(id: number): Observable<any> {
+    return this._http.request<any>('delete', environment.apiUrl + '/incident/' + id);
+  }
 }
