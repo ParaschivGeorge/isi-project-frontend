@@ -45,6 +45,8 @@ export class LoginComponent implements OnInit {
         data => {
           localStorage.setItem('token', data['token']);
           console.log(jwt_decode(localStorage.getItem('token')));
+          localStorage.setItem('email', jwt_decode(localStorage.getItem('token')).sub);
+          this._userService.userSubject.next(localStorage.getItem('email'));
         }
       );
     }

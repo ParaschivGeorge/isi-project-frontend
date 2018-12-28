@@ -6,15 +6,18 @@
       </button>
     </div>
       
-    <span class="welcome">Hello, Dummy!</span>
+    <span class="welcome" *ngIf="email">Hello, {{email}}!</span>
     <span class="fill-remaining-space"></span>
-    <button mat-raised-button fxHide.gt-sm="true">Logout</button> 
+    <button mat-raised-button fxHide.gt-sm="true" (click)="logout()" *ngIf="email">Logout</button> 
     
     <div fxShow="true" fxHide.lt-md="true">
       <a mat-button routerLink="/login">Login</a>
       <a mat-button routerLink="/register">Register</a>
       <a mat-button routerLink="/map">Map</a>
-      <button mat-raised-button>Logout</button>
+      <a mat-button routerLink="/report-incident">Report Incident</a>
+      <a mat-button routerLink="/admin-incidents">Admin Incidents</a>
+      <a mat-button routerLink="/incidents">Incidents</a>
+      <button mat-raised-button (click)="logout()" *ngIf="email">Logout</button>
     </div>
 
   </mat-toolbar>
@@ -24,6 +27,9 @@
         <a mat-button routerLink="/login">Login</a>
         <a mat-button routerLink="/register">Register</a>
         <a mat-button routerLink="/map">Map</a>
+        <a mat-button routerLink="/report-incident">Report Incident</a>
+        <a mat-button routerLink="/admin-incidents">Admin Incidents</a>
+        <a mat-button routerLink="/incidents">Incidents</a>
       </div>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>

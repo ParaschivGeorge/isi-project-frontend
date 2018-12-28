@@ -4,12 +4,18 @@ import { LoginComponent } from '../login/login.component';
 import { ErrorPageComponent } from '../error-page/error-page.component';
 import { RegisterComponent } from '../register/register.component';
 import { MapComponent } from '../map/map.component';
+import { ReportIncidentComponent } from '../report-incident/report-incident.component';
+import { AdminIncidentsComponent } from '../admin-incidents/admin-incidents.component';
+import { IncidentsComponent } from '../incidents/incidents.component';
 
 const app_Routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'map', component: MapComponent},
+  { path: 'report-incident', component: ReportIncidentComponent},
+  { path: 'admin-incidents', component: AdminIncidentsComponent},
+  { path: 'incidents', component: IncidentsComponent},
   // { path: 'donor-form', component: DonorFormComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
   // { path: 'donor-profile', component: DonorProfileComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
   // { path: 'donation-request', component: DonationRequestComponent, canActivate: [AuthGuard], data: {roles: ['doctor']}},
