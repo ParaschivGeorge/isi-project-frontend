@@ -32,7 +32,7 @@ export class IncidentService {
     let queryParam = new HttpParams().set('description', description);
     queryParam = queryParam.append('email', localStorage.getItem('email'));
 
-    return this._http.request<any>('post', environment.apiUrl + '/incident/search/setStatus', {params : queryParam});
+    return this._http.request<any>('post', environment.apiUrl + '/incident/create', {params : queryParam});
   }
 
   deleteIncident(id: number): Observable<any> {

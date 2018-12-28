@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
+import { IncidentService } from '../services/incident.service';
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-report-incident',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportIncidentComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
+  description = null;
+
+  constructor(private _incidentService: IncidentService, private _ngZone: NgZone) { }
 
   ngOnInit() {
+  }
+
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this._ngZone.onStable.pipe(take(1))
+        .subscribe(() => this.autosize.resizeToFitContent(true));
+  }
+
+  onSubmit() {
+    if (this.description !== null && this.description !== '') {
+      this._incidentService.createIncident(this.description).subscribe(data => {
+        console.log(data);
+      });
+    }
   }
 
 }
