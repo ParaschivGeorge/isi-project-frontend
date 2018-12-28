@@ -17,6 +17,10 @@ export class AdminIncidentsComponent implements OnInit {
   waitingIncidents: Incident[];
 
   ngOnInit() {
+    this.refreshIncidents();
+  }
+
+  refreshIncidents() {
     this._incidentService.getIncidents().subscribe(data => {
       console.log(data);
       this.incidents = data._embedded.Incident;
@@ -27,6 +31,24 @@ export class AdminIncidentsComponent implements OnInit {
       console.log(this.approvedIncidents);
       console.log(this.declinedIncidents);
       console.log(this.waitingIncidents);
+    });
+  }
+
+  approve(incidentId: number) {
+    this._incidentService.updateIncidentStatus(incidentId, 'APPROVED').subscribe(data => {
+      this.refreshIncidents();
+    });
+  }
+
+  decline(incidentId: number) {
+    this._incidentService.updateIncidentStatus(incidentId, 'DECLINED').subscribe(data => {
+      this.refreshIncidents();
+    });
+  }
+
+  delete(incidentId: number) {
+    this._incidentService.deleteIncident(incidentId).subscribe(data => {
+      this.refreshIncidents();
     });
   }
 
