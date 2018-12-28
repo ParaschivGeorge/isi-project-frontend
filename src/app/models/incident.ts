@@ -1,9 +1,7 @@
-import { IncidentStatus } from './enums/incident-status.enum';
-
 export interface Incident {
     id: number;
     time: string;
-    status: IncidentStatus;
+    status: string;
     description: string;
     username: string;
 }

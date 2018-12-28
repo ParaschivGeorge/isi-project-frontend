@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { UserType } from '../models/enums/user-type.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,7 @@ export class UserService {
     return this._http.request('post', environment.apiUrl + '/register', {body : {
       email: email,
       password: password,
-      userType: UserType.VOLUNTEER,
+      userType: 'VOLUNTEER',
       username: username
     }});
   }

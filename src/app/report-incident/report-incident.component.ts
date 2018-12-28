@@ -17,8 +17,8 @@ export class ReportIncidentComponent implements OnInit {
   constructor(private _incidentService: IncidentService, private _ngZone: NgZone) { }
 
   ngOnInit() {
+    this.showMessage = false;
   }
-
 
   triggerResize() {
     // Wait for changes to be applied, then trigger textarea resize.
