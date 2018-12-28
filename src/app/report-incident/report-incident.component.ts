@@ -12,6 +12,7 @@ export class ReportIncidentComponent implements OnInit {
 
   @ViewChild('autosize') autosize: CdkTextareaAutosize;
   description = null;
+  showMessage = false;
 
   constructor(private _incidentService: IncidentService, private _ngZone: NgZone) { }
 
@@ -29,6 +30,8 @@ export class ReportIncidentComponent implements OnInit {
     if (this.description !== null && this.description !== '') {
       this._incidentService.createIncident(this.description).subscribe(data => {
         console.log(data);
+        this.description = null;
+        this.showMessage = true;
       });
     }
   }
