@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { UserType } from '../models/enums/user-type.enum';
@@ -9,7 +9,11 @@ import { UserType } from '../models/enums/user-type.enum';
 })
 export class UserService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {
+    this.userSubject = new Subject<string>();
+  }
+
+  userSubject: Subject<string>;
 
   login(email: string, password: string): Observable<any> {
     return this._http.request('post', environment.apiUrl + '/login', {body : {

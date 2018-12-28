@@ -15,6 +15,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MapComponent } from './map/map.component';
 import { AngularEsriModule } from 'angular-esri-components';
+import { ReportIncidentComponent } from './report-incident/report-incident.component';
+import { AdminIncidentsComponent } from './admin-incidents/admin-incidents.component';
+import { IncidentsComponent } from './incidents/incidents.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AngularEsriModule } from 'angular-esri-components';
     RegisterComponent,
     ErrorPageComponent,
     NavBarComponent,
-    MapComponent
+    MapComponent,
+    ReportIncidentComponent,
+    AdminIncidentsComponent,
+    IncidentsComponent
   ],
   imports: [
     BrowserModule,
