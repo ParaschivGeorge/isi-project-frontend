@@ -7,6 +7,7 @@ import { MapComponent } from '../map/map.component';
 import { ReportIncidentComponent } from '../report-incident/report-incident.component';
 import { AdminIncidentsComponent } from '../admin-incidents/admin-incidents.component';
 import { IncidentsComponent } from '../incidents/incidents.component';
+import { GraphsComponent } from '../graphs/graphs.component';
 
 const app_Routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const app_Routes: Routes = [
   { path: 'report-incident', component: ReportIncidentComponent},
   { path: 'admin-incidents', component: AdminIncidentsComponent},
   { path: 'incidents', component: IncidentsComponent},
+  { path: 'charts', component: GraphsComponent},
   // { path: 'donor-form', component: DonorFormComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
   // { path: 'donor-profile', component: DonorProfileComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
   // { path: 'donation-request', component: DonationRequestComponent, canActivate: [AuthGuard], data: {roles: ['doctor']}},

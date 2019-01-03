@@ -18,6 +18,9 @@ import { AngularEsriModule } from 'angular-esri-components';
 import { ReportIncidentComponent } from './report-incident/report-incident.component';
 import { AdminIncidentsComponent } from './admin-incidents/admin-incidents.component';
 import { IncidentsComponent } from './incidents/incidents.component';
+import { GraphsComponent } from './graphs/graphs.component';
+// For MDB Angular Free
+import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { IncidentsComponent } from './incidents/incidents.component';
     MapComponent,
     ReportIncidentComponent,
     AdminIncidentsComponent,
-    IncidentsComponent
+    IncidentsComponent,
+    GraphsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { IncidentsComponent } from './incidents/incidents.component';
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
-    AngularEsriModule
+    AngularEsriModule,
+    ChartsModule,
+    WavesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
