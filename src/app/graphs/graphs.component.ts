@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './graphs.component.html',
   styleUrls: ['./graphs.component.css']
 })
-export class GraphsComponent implements OnInit, OnDestroy, On {
+export class GraphsComponent implements OnInit, OnDestroy {
   constructor(private _measurementService: MeasurementService) {}
 
   poller: any;
@@ -53,9 +53,9 @@ export class GraphsComponent implements OnInit, OnDestroy, On {
       this.chartLabels = [];
       measurements.forEach(measurement => {
         data.push(measurement.value);
-        this.chartLabels.push(parseInt((measurement.time / 360)).toString() + ':' +
-        parseInt((measurement.time % 360) / 6).toString() + ':' +
-        parseInt(((measurement.time % 360) % 6) * 10).toString());
+        this.chartLabels.push((measurement.time / 360).toPrecision(1).toString() + ':' +
+        ((measurement.time % 360) / 6).toPrecision(1).toString() + ':' +
+        (((measurement.time % 360) % 6) * 10).toPrecision(1).toString());
       });
       this.chartDatasets = [{data, label}];
     });
