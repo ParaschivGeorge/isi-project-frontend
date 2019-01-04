@@ -6,7 +6,8 @@
       </button>
     </div>
       
-    <span class="welcome" *ngIf="email">Hello, {{email}}!</span>
+    <span class="welcome" *ngIf="email" fxHide.gt-sm="true">{{email}}</span>
+    <span class="welcome" *ngIf="email" fxHide.lt-md="true">Hello, {{email}}!</span>
     <span class="fill-remaining-space"></span>
     <button mat-icon-button [matMenuTriggerFor]="menu" fxHide.gt-sm="true">
       <mat-icon>notifications</mat-icon>
@@ -20,9 +21,16 @@
         </mat-card-header>
       </mat-card>
     </mat-menu>
-    <button mat-raised-button fxHide.gt-sm="true" (click)="logout()" *ngIf="email">Logout</button> 
+    <mat-icon fxHide.gt-sm="true" (click)="logout()" *ngIf="email">meeting_room </mat-icon>
     
     <div fxShow="true" fxHide.lt-md="true">
+      <a mat-button routerLink="/login" *ngIf="!email">Login</a>
+      <a mat-button routerLink="/register" *ngIf="!email">Register</a>
+      <a mat-button routerLink="/map">Map</a>
+      <a mat-button routerLink="/report-incident" *ngIf="email && email !== 'admin@gmail.com'">Report Incident</a>
+      <a mat-button routerLink="/admin-incidents" *ngIf="email && email === 'admin@gmail.com'">Admin Incidents</a>
+      <a mat-button routerLink="/incidents">Incidents</a>
+      <a mat-button routerLink="/charts">Charts</a>
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>notifications</mat-icon>
       </button>
@@ -35,13 +43,6 @@
           </mat-card-header>
         </mat-card>
       </mat-menu>
-      <a mat-button routerLink="/login">Login</a>
-      <a mat-button routerLink="/register">Register</a>
-      <a mat-button routerLink="/map">Map</a>
-      <a mat-button routerLink="/report-incident">Report Incident</a>
-      <a mat-button routerLink="/admin-incidents">Admin Incidents</a>
-      <a mat-button routerLink="/incidents">Incidents</a>
-      <a mat-button routerLink="/charts">Charts</a>
       <button mat-raised-button (click)="logout()" *ngIf="email">Logout</button>
     </div>
 
@@ -49,11 +50,11 @@
   <mat-sidenav-container fxFlexFill class="example-container content">
     <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over"  opened="false" fxHide.gt-sm="true">
       <div fxLayout="column">
-        <a mat-button routerLink="/login">Login</a>
-        <a mat-button routerLink="/register">Register</a>
+        <a mat-button routerLink="/login" *ngIf="!email">Login</a>
+        <a mat-button routerLink="/register" *ngIf="!email">Register</a>
         <a mat-button routerLink="/map">Map</a>
-        <a mat-button routerLink="/report-incident">Report Incident</a>
-        <a mat-button routerLink="/admin-incidents">Admin Incidents</a>
+        <a mat-button routerLink="/report-incident" *ngIf="email && email !== 'admin@gmail.com'">Report Incident</a>
+        <a mat-button routerLink="/admin-incidents" *ngIf="email && email === 'admin@gmail.com'">Admin Incidents</a>
         <a mat-button routerLink="/incidents">Incidents</a>
         <a mat-button routerLink="/charts">Charts</a>
       </div>
