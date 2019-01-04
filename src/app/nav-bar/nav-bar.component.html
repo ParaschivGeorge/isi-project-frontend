@@ -8,9 +8,33 @@
       
     <span class="welcome" *ngIf="email">Hello, {{email}}!</span>
     <span class="fill-remaining-space"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" fxHide.gt-sm="true">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="notifications-menu">
+      <mat-card *ngFor="let notification of notifications" class="notification-card">
+        <mat-card-header class="notification-header">
+          <mat-icon mat-card-avatar class="notification-icon">warning</mat-icon>
+          <mat-card-title class="notification-title">{{notification.description.substring(7, notification.description.length)}}</mat-card-title>
+          <mat-card-subtitle class="notification-subtitle">{{getDate(notification.time)}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </mat-menu>
     <button mat-raised-button fxHide.gt-sm="true" (click)="logout()" *ngIf="email">Logout</button> 
     
     <div fxShow="true" fxHide.lt-md="true">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="notifications-menu">
+        <mat-card *ngFor="let notification of notifications" class="notification-card">
+          <mat-card-header class="notification-header">
+            <mat-icon mat-card-avatar class="notification-icon">warning</mat-icon>
+            <mat-card-title class="notification-title">{{notification.description.substring(7, notification.description.length)}}</mat-card-title>
+            <mat-card-subtitle class="notification-subtitle">{{getDate(notification.time)}}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </mat-menu>
       <a mat-button routerLink="/login">Login</a>
       <a mat-button routerLink="/register">Register</a>
       <a mat-button routerLink="/map">Map</a>
