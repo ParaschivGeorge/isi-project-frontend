@@ -48,3 +48,27 @@ padding: 0 14px;
     min-height: 100vh;
     background-repeat: repeat;   
 }
+
+.notification-card {
+    max-height: 3rem;
+    border-radius: 0%;
+}
+
+.notification-icon {
+    font-size: 2rem;
+}
+
+.notification-subtitle {
+    font-size: 0.5rem;
+}
+
+.notification-title {
+    font-size: 0.7rem;
+}
+
+::ng-deep .mat-menu-content {
+    overflow-y: hidden !important;
+    padding-top: 0% !important;
+    padding-bottom: 0% !important;
+    border-radius: 0%;
+}
