@@ -53,10 +53,10 @@ export class GraphsComponent implements OnInit, OnDestroy {
       this.chartLabels = [];
       measurements.forEach(measurement => {
         data.push(measurement.value);
-        this.chartLabels.push((measurement.time / 360).toPrecision(2).toString() + ':' +
-        ((measurement.time % 360) / 6).toPrecision(2).toString() + ':' +
+        this.chartLabels.push(Math.floor(measurement.time / 360).toString() + ':' +
+        Math.floor((measurement.time % 360) / 6).toString() + ':' +
         (((measurement.time % 360) % 6) !== 0 ?
-          (((measurement.time % 360) % 6) * 10).toPrecision(2).toString() : '00'));
+          Math.floor(((measurement.time % 360) % 6) * 10).toString() : '00'));
       });
       this.chartDatasets = [{data, label}];
     });
