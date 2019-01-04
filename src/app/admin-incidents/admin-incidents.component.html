@@ -29,6 +29,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
+        <button mat-button color="accent" (click)="decline(approvedIncident.id)">Decline</button>
         <button mat-button color="warn" (click)="delete(approvedIncident.id)">Delete</button>
       </mat-card-actions>
     </mat-card>
@@ -45,6 +46,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
+        <button mat-button color="primary" (click)="approve(declinedIncident.id)">Approve</button>
         <button mat-button color="warn" (click)="delete(declinedIncident.id)">Delete</button>
       </mat-card-actions>
     </mat-card>

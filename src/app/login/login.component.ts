@@ -47,6 +47,11 @@ export class LoginComponent implements OnInit {
           console.log(jwt_decode(localStorage.getItem('token')));
           localStorage.setItem('email', jwt_decode(localStorage.getItem('token')).sub);
           this._userService.userSubject.next(localStorage.getItem('email'));
+          if (localStorage.getItem('email') === 'admin@gmail.com') {
+            this._router.navigate(['admin-incidents']);
+          } else {
+            this._router.navigate(['report-incident']);
+          }
         }
       );
     }

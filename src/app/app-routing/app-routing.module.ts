@@ -8,22 +8,17 @@ import { ReportIncidentComponent } from '../report-incident/report-incident.comp
 import { AdminIncidentsComponent } from '../admin-incidents/admin-incidents.component';
 import { IncidentsComponent } from '../incidents/incidents.component';
 import { GraphsComponent } from '../graphs/graphs.component';
+import { AuthGuard } from '../auth/auth-guard.service';
 
 const app_Routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'map', component: MapComponent},
-  { path: 'report-incident', component: ReportIncidentComponent},
-  { path: 'admin-incidents', component: AdminIncidentsComponent},
+  { path: 'report-incident', component: ReportIncidentComponent, canActivate: [AuthGuard], data: {roles: ['volunteer']}},
+  { path: 'admin-incidents', component: AdminIncidentsComponent, canActivate: [AuthGuard], data: {roles: ['admin']}},
   { path: 'incidents', component: IncidentsComponent},
   { path: 'charts', component: GraphsComponent},
-  // { path: 'donor-form', component: DonorFormComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
-  // { path: 'donor-profile', component: DonorProfileComponent, canActivate: [AuthGuard], data: {roles: ['donor']}},
-  // { path: 'donation-request', component: DonationRequestComponent, canActivate: [AuthGuard], data: {roles: ['doctor']}},
-  // { path: 'requests', component: ViewRequestsComponent, canActivate: [AuthGuard], data: {roles: ['donor', 'doctor', 'employee']}},
-  // { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: {roles: ['admin']}},
-  // { path: 'inactive-account', component: InactiveAccountComponent},
   { path: 'not-found', component: ErrorPageComponent},
   { path: '**', redirectTo: 'not-found' } // this should always be the last route!
   /* { path: '', redirectTo: '/somewhere-else', pathMatch: 'full' }
@@ -36,7 +31,7 @@ const app_Routes: Routes = [
 
 @NgModule({
   imports: [
-      // RouterModule.forRoot(app_Routes, {useHash: true}) 
+      // RouterModule.forRoot(app_Routes, {useHash: true})
       // useHash so your web server doesn't resolve the url before the web client(angular)
       RouterModule.forRoot(app_Routes)
   ],

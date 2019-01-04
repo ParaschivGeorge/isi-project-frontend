@@ -8,7 +8,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -21,6 +21,8 @@ import { IncidentsComponent } from './incidents/incidents.component';
 import { GraphsComponent } from './graphs/graphs.component';
 // For MDB Angular Free
 import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
+import { AuthGuard } from './auth/auth-guard.service';
+import { AuthInterceptor } from './auth/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,7 @@ import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
     ChartsModule,
     WavesModule
   ],
-  providers: [],
+  providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,3 +7,7 @@
     border-radius: 10px;
     max-height: 80vh;
 }
+
+canvas {
+    max-height: 70vh;
+}
