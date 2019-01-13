@@ -23,6 +23,7 @@ import { GraphsComponent } from './graphs/graphs.component';
 import { ChartsModule, WavesModule } from 'angular-bootstrap-md';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthInterceptor } from './auth/token-interceptor';
+import { SafeUrlPipe } from './utils/safe-url.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthInterceptor } from './auth/token-interceptor';
     ReportIncidentComponent,
     AdminIncidentsComponent,
     IncidentsComponent,
-    GraphsComponent
+    GraphsComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
