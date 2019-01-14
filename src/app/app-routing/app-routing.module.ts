@@ -9,6 +9,7 @@ import { AdminIncidentsComponent } from '../admin-incidents/admin-incidents.comp
 import { IncidentsComponent } from '../incidents/incidents.component';
 import { GraphsComponent } from '../graphs/graphs.component';
 import { AuthGuard } from '../auth/auth-guard.service';
+import { AboutPageComponent } from '../about-page/about-page.component';
 
 const app_Routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const app_Routes: Routes = [
   { path: 'admin-incidents', component: AdminIncidentsComponent, canActivate: [AuthGuard], data: {roles: ['admin']}},
   { path: 'incidents', component: IncidentsComponent},
   { path: 'charts', component: GraphsComponent},
+  { path: 'about', component: AboutPageComponent},
   { path: 'not-found', component: ErrorPageComponent},
   { path: '**', redirectTo: 'not-found' } // this should always be the last route!
   /* { path: '', redirectTo: '/somewhere-else', pathMatch: 'full' }
